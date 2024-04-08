@@ -1,10 +1,12 @@
 package com.example.draft;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class login extends AppCompatActivity {
 
     private EditText usernameEditText, passwordEditText;
+    private TextView signUpTextView; // Add TextView for "Sign up here"
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,10 @@ public class login extends AppCompatActivity {
         usernameEditText = findViewById(R.id.editTextUsername);
         passwordEditText = findViewById(R.id.editTextPassword);
         Button loginButton = findViewById(R.id.buttonLogin);
-        Button registerButton = findViewById(R.id.buttonRegister);
+        signUpTextView = findViewById(R.id.textView3); // Initialize TextView
+
+        // Set underline for "Sign up here" TextView programmatically
+        signUpTextView.setPaintFlags(signUpTextView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,11 +47,11 @@ public class login extends AppCompatActivity {
             }
         });
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
+        // Set onClickListener for "Sign up here" TextView
+        signUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Open the registration activity
-                openRegistrationActivity();
+                openRegistrationActivity(); // Open registration activity
             }
         });
     }
