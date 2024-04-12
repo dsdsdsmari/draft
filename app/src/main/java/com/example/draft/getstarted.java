@@ -4,40 +4,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class getstarted extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_getstarted);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
-        Button signInButton = findViewById(R.id.signInButton);
-        Button signUpButton = findViewById(R.id.signUpButton);
+        Button signInButton = findViewById(R.id.signIn);
+        Button signUpButton = findViewById(R.id.signUp);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 openLoginActivity();
             }
         });
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                openRegisterActivity();
+            public void onClick(View view) {
+                openRegActivity();
             }
         });
     }
@@ -47,7 +38,7 @@ public class getstarted extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void openRegisterActivity() {
+    private void openRegActivity() {
         Intent intent = new Intent(this, reg.class);
         startActivity(intent);
     }

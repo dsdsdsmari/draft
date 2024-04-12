@@ -4,4 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="logo">#FFF0BC</color>
     <color name="main_bg">#FFAF37</color>
+
+    <color name="unselected_color">#FFFFFFFF</color>
+    <color name="selected_color">#372B01</color>
+
 </resources>

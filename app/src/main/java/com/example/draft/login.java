@@ -1,12 +1,12 @@
 package com.example.draft;
 
 import android.content.Intent;
-import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,62 +14,71 @@ import androidx.appcompat.app.AppCompatActivity;
 public class login extends AppCompatActivity {
 
     private EditText usernameEditText, passwordEditText;
-    private TextView signUpTextView; // Add TextView for "Sign up here"
+    private Button loginButton;
+    private boolean isPasswordVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        initializeViews();
+        setListeners();
+    }
+
+    private void initializeViews() {
         usernameEditText = findViewById(R.id.editTextUsername);
         passwordEditText = findViewById(R.id.editTextPassword);
-        Button loginButton = findViewById(R.id.buttonLogin);
-        signUpTextView = findViewById(R.id.textView3); // Initialize TextView
+        loginButton = findViewById(R.id.btnSignIn);
+    }
 
-        // Set underline for "Sign up here" TextView programmatically
-        signUpTextView.setPaintFlags(signUpTextView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
+    private void setListeners() {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Perform login logic here
                 String username = usernameEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
-
-                // Check credentials (this is a basic example)
                 if (isValidCredentials(username, password)) {
-                    // Successful login
                     openHomeActivity();
                 } else {
-                    // Failed login
                     Toast.makeText(login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        // Set onClickListener for "Sign up here" TextView
-        signUpTextView.setOnClickListener(new View.OnClickListener() {
+        passwordEditText.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                openRegistrationActivity(); // Open registration activity
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_RIGHT = 2;
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (passwordEditText.getRight() - passwordEditText.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        togglePasswordVisibility();
+                        return true;
+                    }
+                }
+                return false;
             }
         });
     }
 
     private boolean isValidCredentials(String username, String password) {
-        // Add your authentication logic here (e.g., check against a database or server)
-        // For simplicity, this example uses hardcoded credentials
         return username.equals("example") && password.equals("password");
     }
 
     private void openHomeActivity() {
-        Intent intent = new Intent(this, home.class);
+        Intent intent = new Intent(this, dashboard.class);
         startActivity(intent);
         finish();
     }
 
-    private void openRegistrationActivity() {
-        Intent intent = new Intent(this, reg.class);
-        startActivity(intent);
+    private void togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            passwordEditText.setTransformationMethod(new PasswordTransformationMethod());
+            passwordEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lock, 0, R.drawable.eyes_closed, 0);
+        } else {
+            passwordEditText.setTransformationMethod(null);
+            passwordEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lock, 0, R.drawable.eyes_open, 0);
+        }
+        isPasswordVisible = !isPasswordVisible;
     }
 }

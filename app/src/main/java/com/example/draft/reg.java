@@ -43,7 +43,7 @@ public class reg extends AppCompatActivity {
         });
 
         Button registerButton = findViewById(R.id.btnSignUp);
-        registerButton.setOnClickListener(new    View.OnClickListener() {
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String firstName = firstNameEditText.getText().toString();

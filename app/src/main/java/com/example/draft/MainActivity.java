@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private void openGetStartedActivity() {
         Intent intent = new Intent(this, getstarted.class);
         startActivity(intent);
-        finish(); // Finish the current activity to prevent going back to it when pressing back button
+        finish();
     }
 
 }
