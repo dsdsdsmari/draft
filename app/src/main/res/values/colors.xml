@@ -2,5 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="underline_color">#471E18</color>
+    <color name="logo">#FFF0BC</color>
+    <color name="main_bg">#FFAF37</color>
 </resources>

@@ -1,23 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF0BC"
+    android:background="#FFAF37"
     tools:context=".MainActivity">
 
-
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
-        android:layout_marginBottom="165dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pawsnpals" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:id="@+id/logo"
+        android:layout_width="247dp"
+        android:layout_height="225dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="177dp"
+        android:layout_marginEnd="73dp"
+        android:src="@drawable/paws___pals___logo" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="275dp"
+        android:layout_height="242dp"
+        android:layout_below="@id/logo"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="185dp"
+        android:fontFamily="@font/chelsea_market"
+        android:text="Paws &amp; Pals"
+        android:textColor="@color/logo"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="72dp"
+        android:layout_height="93dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="701dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="35dp" />
+
+</RelativeLayout>
