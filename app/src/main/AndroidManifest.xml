@@ -13,8 +13,20 @@
         android:theme="@style/Theme.Draft"
         tools:targetApi="31">
         <activity
-            android:name=".GetStartedOne"
+            android:name=".GetStarted3"
             android:exported="false" />
+        <activity
+            android:name=".GetStarted2"
+            android:exported="false" />
+        <activity
+            android:name=".GetStarted1"
+            android:exported="false" />
+        <!--<activity
+            android:name=".gestarted1"
+            android:exported="false" /> -->
+        <!--<activity
+            android:name=".GetStartedOne"
+            android:exported="false" /> -->
         <activity
             android:name=".confirmation"
             android:exported="false" />
