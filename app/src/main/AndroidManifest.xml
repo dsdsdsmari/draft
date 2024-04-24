@@ -11,6 +11,24 @@
         android:theme="@style/Theme.Draft"
         tools:targetApi="31">
         <activity
+            android:name=".ProfileStep4"
+            android:exported="false" />
+        <activity
+            android:name=".DogStep3"
+            android:exported="false" />
+        <activity
+            android:name=".CatStep3"
+            android:exported="false" />
+        <activity
+            android:name=".step3"
+            android:exported="false" />
+        <activity
+            android:name=".step2"
+            android:exported="false" />
+        <activity
+            android:name=".step1"
+            android:exported="false" />
+        <activity
             android:name=".GetStarted3"
             android:exported="false" />
         <activity
@@ -19,12 +37,16 @@
         <activity
             android:name=".GetStarted1"
             android:exported="false" />
-        <!--<activity
+        <!--
+<activity
             android:name=".gestarted1"
-            android:exported="false" /> -->
-        <!--<activity
+            android:exported="false" />
+        -->
+        <!--
+<activity
             android:name=".GetStartedOne"
-            android:exported="false" /> -->
+            android:exported="false" />
+        -->
         <activity
             android:name=".confirmation"
             android:exported="false" />
