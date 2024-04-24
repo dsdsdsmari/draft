@@ -1,6 +1,9 @@
 package com.example.draft;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,19 @@ public class DogStep3 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Button continueButton = findViewById(R.id.btn_continue);
+
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCatStep3Activity();
+            }
+        });
+    }
+
+    private void openCatStep3Activity() {
+        Intent intent = new Intent(this, CatStep3.class);
+        startActivity(intent);
     }
 }

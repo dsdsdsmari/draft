@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     private static final int SPLASH_DELAY = 2000;
 
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_splash);
 
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
@@ -27,17 +27,14 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                openGetStartedActivity();
+                openGetStarted1();
             }
         }, SPLASH_DELAY);
     }
 
-    private void openGetStartedActivity() {
-        Intent intent = new Intent(this, getstarted.class);
+    private void openGetStarted1() {
+        Intent intent = new Intent(this, GetStarted1.class);
         startActivity(intent);
         finish();
     }
-
-
-
 }

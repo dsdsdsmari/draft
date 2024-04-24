@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText usernameEditText, passwordEditText;
     private Button loginButton;
@@ -41,7 +41,7 @@ public class login extends AppCompatActivity {
                 if (isValidCredentials(username, password)) {
                     openHomeActivity();
                 } else {
-                    Toast.makeText(login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -66,7 +66,7 @@ public class login extends AppCompatActivity {
     }
 
     private void openHomeActivity() {
-        Intent intent = new Intent(this, dashboard.class);
+        Intent intent = new Intent(this, DashboardActivity.class);
         startActivity(intent);
         finish();
     }
