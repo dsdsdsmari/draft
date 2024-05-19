@@ -8,29 +8,18 @@
     android:background="@color/unselected_color">
 
     <TextView
-        android:id="@+id/textView_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lexend_bold"
-        android:text="Home Fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/app_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="56dp"
         android:fontFamily="@font/lexend_bold"
         android:text="Paws &amp; Pals"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@id/logo_image"
         app:layout_constraintStart_toEndOf="@id/logo_image"
         app:layout_constraintTop_toTopOf="@id/logo_image"
-        app:layout_constraintVertical_bias="0.444" />
+        app:layout_constraintVertical_bias="0.611" />
 
     <ImageView
         android:id="@+id/logo_image"
@@ -42,6 +31,102 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.024" />
+
+    <LinearLayout
+        android:layout_width="395dp"
+        android:layout_height="143dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/adz" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="395dp"
+        android:layout_height="143dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <LinearLayout
+        android:layout_width="383dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.385">
+
+        <RelativeLayout
+            android:layout_width="110dp"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="104dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/main_bg"
+                android:drawableTop="@drawable/dog"
+                android:drawableTint="@color/unselected_color"
+                android:fontFamily="@font/lexend_bold"
+                android:paddingTop="50px"
+                android:text="Dogs" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="125dp"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="114dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/main_bg"
+                android:drawableTop="@drawable/cat"
+                android:drawableTint="@color/unselected_color"
+                android:fontFamily="@font/lexend_bold"
+                android:paddingTop="50px"
+                android:text="Cats" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="125dp"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="104dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/main_bg"
+                android:drawableTop="@drawable/pets"
+                android:drawableTint="@color/unselected_color"
+                android:fontFamily="@font/lexend_bold"
+                android:paddingTop="50px"
+                android:text="All" />
+        </RelativeLayout>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
