@@ -11,6 +11,21 @@
         android:theme="@style/Theme.Draft"
         tools:targetApi="31">
         <activity
+            android:name=".BothBreed"
+            android:exported="false" />
+        <activity
+            android:name=".CatBreed"
+            android:exported="false" />
+        <activity
+            android:name=".DogBreed"
+            android:exported="false" />
+        <activity
+            android:name=".SearchResultDog"
+            android:exported="false" />
+        <activity
+            android:name=".PetSearch"
+            android:exported="false" />
+        <activity
             android:name=".ProfileStep4"
             android:exported="false" />
         <activity
