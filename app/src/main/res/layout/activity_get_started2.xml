@@ -8,44 +8,43 @@
     tools:context=".GetStarted2">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="67dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/main_bg"
+        android:src="@drawable/bg_get_started_two"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/upper" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lexend_bold"
-        android:text="Explore a World of Companionship"
+        android:text="Explore a world of Companionship"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.100000024" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lexend_medium"
-        android:text="Discover a diverse array of adorable companions, find your favourites and let the tail-wagging adventure begin."
+        android:text="Discover a diverse array of adorable companions, find your favourites and let the tail wagging adventure begin."
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="0.100000024" />
 
     <LinearLayout
         android:layout_width="330dp"
@@ -55,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.65999997">
+        app:layout_constraintVertical_bias="0.6">
 
         <Button
             android:id="@+id/btn_skip"
@@ -63,10 +62,10 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:text="Skip"
+            android:backgroundTint="@color/off_white"
             android:fontFamily="@font/lexend_medium"
-            android:textColor="@color/main_bg"
-            android:backgroundTint="@color/off_white"/>
+            android:text="Skip"
+            android:textColor="@color/main_bg" />
 
         <Button
             android:id="@+id/btn_continue"
@@ -74,9 +73,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:text="Continue"
+            android:backgroundTint="@color/main_bg"
             android:fontFamily="@font/lexend_medium"
-            android:backgroundTint="@color/main_bg"/>
+            android:text="Continue" />
 
     </LinearLayout>
 

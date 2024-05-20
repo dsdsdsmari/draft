@@ -11,6 +11,9 @@
         android:theme="@style/Theme.Draft"
         tools:targetApi="31">
         <activity
+            android:name=".DialogPetPreferences"
+            android:exported="false" />
+        <activity
             android:name=".BothBreed"
             android:exported="false" />
         <activity
