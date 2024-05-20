@@ -22,7 +22,7 @@ public class HomeFragment extends Fragment {
         Button button1 = view.findViewById(R.id.button1);
         Button button2 = view.findViewById(R.id.button2);
         Button button3 = view.findViewById(R.id.button3);
-
+        Button btn_search = view.findViewById(R.id.btn_search);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +45,15 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 // Start CatBreed activity
                 Intent intent = new Intent(getActivity(), BothBreed.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start CatBreed activity
+                Intent intent = new Intent(getActivity(), PetSearch.class);
                 startActivity(intent);
             }
         });
