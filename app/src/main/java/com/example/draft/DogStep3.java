@@ -29,13 +29,13 @@ public class DogStep3 extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openCatStep3Activity();
+                openProfileStep4();
             }
         });
     }
 
-    private void openCatStep3Activity() {
-        Intent intent = new Intent(this, CatStep3.class);
+    private void openProfileStep4() {
+        Intent intent = new Intent(this, ProfileStep4.class);
         startActivity(intent);
     }
 }

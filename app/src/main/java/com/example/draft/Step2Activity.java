@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,12 +26,20 @@ public class Step2Activity extends AppCompatActivity {
             return insets;
         });
 
+        RadioGroup radioGroup = findViewById(R.id.radioGroup);
+        RadioButton radioDog = findViewById(R.id.radioDog);
+        RadioButton radioCat = findViewById(R.id.radioCat);
         Button continueButton = findViewById(R.id.btn_continue);
 
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDogStep3Activity();
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                if (selectedId == radioDog.getId()) {
+                    openDogStep3Activity();
+                } else if (selectedId == radioCat.getId()) {
+                    openCatStep3Activity();
+                }
             }
         });
     }
@@ -38,4 +48,10 @@ public class Step2Activity extends AppCompatActivity {
         Intent intent = new Intent(this, DogStep3.class);
         startActivity(intent);
     }
+
+    private void openCatStep3Activity() {
+        Intent intent = new Intent(this, CatStep3.class);
+        startActivity(intent);
+    }
+
 }

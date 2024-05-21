@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_bg"
+    android:background="#f4f4f4"
     tools:context=".ProfileStep4">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:text="Final Steps!"
-        android:textColor="@color/unselected_color"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:fontFamily="@font/lexend_bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,7 +27,7 @@
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:text="We're almost there! Fill in your personal details to create a profile and start your journey towards a furry friendship"
-        android:textColor="@color/unselected_color"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:fontFamily="@font/lexend_medium"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,11 +39,11 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="130dp"
+        android:layout_width="330dp"
         android:layout_height="28dp"
         android:fontFamily="@font/lexend_medium"
-        android:text="Full Name"
-        android:textColor="@color/off_white"
+        android:text="  Full Name"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,8 +55,8 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
         android:background="@drawable/edittext_rounded_bg"
         android:fontFamily="@font/lexend_medium"
         android:hint="Full Name"
@@ -74,11 +74,11 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="130dp"
+        android:layout_width="330dp"
         android:layout_height="28dp"
         android:fontFamily="@font/lexend_medium"
-        android:text="Phone Number"
-        android:textColor="@color/off_white"
+        android:text="  Phone Number"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -90,8 +90,8 @@
 
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
         android:background="@drawable/edittext_rounded_bg"
         android:fontFamily="@font/lexend_medium"
         android:hint="Phone number"
@@ -109,11 +109,11 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="130dp"
+        android:layout_width="330dp"
         android:layout_height="28dp"
         android:fontFamily="@font/lexend_medium"
         android:text="Gender"
-        android:textColor="@color/off_white"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -125,7 +125,7 @@
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="300dp"
+        android:layout_width="330dp"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
@@ -139,25 +139,25 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/lexend_bold"
             android:text="Male"
-            android:textColor="@color/off_white" />
+            android:textColor="@color/black" />
 
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lexend_bold"
             android:text="Female"
-            android:textColor="@color/off_white" />
+            android:textColor="@color/black" />
     </RadioGroup>
 
     <Button
         android:id="@+id/btn_finish"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/off_white"
+        android:backgroundTint="@color/main_bg"
         android:fontFamily="@font/lexend_bold"
         android:onClick="step2"
         android:text="Finish"
-        android:textColor="@color/main_bg"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2"

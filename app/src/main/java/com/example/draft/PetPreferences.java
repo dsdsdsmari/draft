@@ -11,31 +11,39 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class CatStep3 extends AppCompatActivity {
+public class PetPreferences extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_cat_step3);
+        setContentView(R.layout.activity_pet_preferences);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        Button continueButton = findViewById(R.id.btn_continue);
+        Button btn_cancel = findViewById(R.id.btn_cancel);
+        Button btn_ok = findViewById(R.id.btn_ok);
 
-        continueButton.setOnClickListener(new View.OnClickListener() {
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openProfileStep4();
+                openAccountFragment();
+            }
+        });
+
+        btn_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAccountFragment();
             }
         });
     }
 
-    private void openProfileStep4() {
-        Intent intent = new Intent(this, ProfileStep4.class);
+    private void openAccountFragment() {
+        Intent intent = new Intent(this, AccountFragment.class);
         startActivity(intent);
     }
 }
