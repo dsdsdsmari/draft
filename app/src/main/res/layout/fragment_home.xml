@@ -9,99 +9,113 @@
 
     <TextView
         android:id="@+id/app_name_text"
-        android:layout_width="wrap_content"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="24dp"
         android:fontFamily="@font/lexend_bold"
         android:text="Paws &amp; Pals"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/logo_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/orange_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout9"
-        android:layout_width="395dp"
-        android:layout_height="143dp"
-        android:orientation="horizontal"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.11">
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/adz" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="395dp"
-        android:layout_height="143dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.11" />
+        app:layout_constraintVertical_bias="0.038" />
 
     <Button
         android:id="@+id/btn_search"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:text="Pet Search"
-        android:textColor="@color/black"
         android:background="@drawable/bg_button_selected"
         android:fontFamily="@font/lexend_bold"
+        android:text="Pet Search"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout9"
-        app:layout_constraintVertical_bias="0.01999998" />
+        app:layout_constraintEnd_toEndOf="@+id/app_name_text"
+        app:layout_constraintStart_toStartOf="@+id/app_name_text"
+        app:layout_constraintTop_toBottomOf="@+id/app_name_text"
+        app:layout_constraintVertical_bias="0.04000002" />
 
-    <LinearLayout
-        android:layout_width="290dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:src="@drawable/item_dashboard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btn_search"
         app:layout_constraintStart_toStartOf="@+id/btn_search"
         app:layout_constraintTop_toBottomOf="@+id/btn_search"
-        app:layout_constraintVertical_bias="0.050000012">
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_AdoptNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button_selected"
+        android:fontFamily="@font/lexend_bold"
+        android:text="Adopt Now"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/btn_search"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_bold"
+        android:text="Pet Adoption \nMade Easy"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/btn_search"
+        app:layout_constraintVertical_bias="0.326" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_bold"
+        android:text="  Categories"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.04000002">
 
         <Button
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:layout_weight="1"
             android:background="@drawable/bg_button_selected"
             android:fontFamily="@font/lexend_bold"
             android:text="Dogs"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:layout_weight="1"
             android:background="@drawable/bg_button_selected"
             android:fontFamily="@font/lexend_bold"
@@ -112,8 +126,8 @@
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:layout_weight="1"
             android:background="@drawable/bg_button_selected"
             android:fontFamily="@font/lexend_bold"
@@ -121,6 +135,5 @@
             android:textColor="@color/black" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
