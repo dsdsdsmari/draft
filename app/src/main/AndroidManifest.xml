@@ -14,19 +14,10 @@
             android:name=".AdoptNow"
             android:exported="false" />
         <activity
-            android:name=".CardStackView"
-            android:exported="false" />
-        <activity
             android:name=".PetPreferences"
             android:exported="false" />
         <activity
             android:name=".EditProfile"
-            android:exported="false" />
-        <activity
-            android:name=".FinalStep"
-            android:exported="false" />
-        <activity
-            android:name=".DialogPetPreferences"
             android:exported="false" />
         <activity
             android:name=".BothBreed"
@@ -51,9 +42,6 @@
             android:exported="false" />
         <activity
             android:name=".CatStep3"
-            android:exported="false" />
-        <activity
-            android:name=".step3"
             android:exported="false" />
         <activity
             android:name=".Step2Activity"
