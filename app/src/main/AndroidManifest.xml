@@ -58,16 +58,6 @@
         <activity
             android:name=".GetStarted1"
             android:exported="false" />
-        <!--
-<activity
-            android:name=".gestarted1"
-            android:exported="false" />
-        -->
-        <!--
-<activity
-            android:name=".GetStartedOne"
-            android:exported="false" />
-        -->
         <activity
             android:name=".ConfirmationActivity"
             android:exported="false" />
