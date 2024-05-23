@@ -10,7 +10,6 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
-
     private static final int SPLASH_DELAY = 2000;
 
     private ProgressBar progressBar;

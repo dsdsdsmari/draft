@@ -28,19 +28,20 @@
             app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.056" />
+            app:layout_constraintVertical_bias="0.021" />
 
         <LinearLayout
             android:id="@+id/linearLayout6"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView13"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView13"
             app:layout_constraintTop_toBottomOf="@+id/textView13"
-            app:layout_constraintVertical_bias="0.07">
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
                 android:layout_width="165dp"
@@ -93,12 +94,13 @@
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/linearLayout6"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
-            app:layout_constraintVertical_bias="0.050000012">
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
                 android:layout_width="165dp"
@@ -151,12 +153,13 @@
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout8"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/linearLayout8"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
-            app:layout_constraintVertical_bias="0.050000012">
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
                 android:layout_width="165dp"
@@ -209,12 +212,13 @@
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout14"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/linearLayout14"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout14"
-            app:layout_constraintVertical_bias="0.100000024">
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
                 android:layout_width="165dp"

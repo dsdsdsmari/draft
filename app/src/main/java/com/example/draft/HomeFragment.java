@@ -26,7 +26,6 @@ public class HomeFragment extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start CatBreed activity
                 Intent intent = new Intent(getActivity(), DogBreed.class);
                 startActivity(intent);
             }
@@ -34,7 +33,6 @@ public class HomeFragment extends Fragment {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start CatBreed activity
                 Intent intent = new Intent(getActivity(), CatBreed.class);
                 startActivity(intent);
             }
@@ -43,7 +41,6 @@ public class HomeFragment extends Fragment {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start CatBreed activity
                 Intent intent = new Intent(getActivity(), BothBreed.class);
                 startActivity(intent);
             }
@@ -52,8 +49,17 @@ public class HomeFragment extends Fragment {
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start CatBreed activity
                 Intent intent = new Intent(getActivity(), PetSearch.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btn_AdoptNow = view.findViewById(R.id.btn_AdoptNow);
+
+        btn_AdoptNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AdoptNow.class);
                 startActivity(intent);
             }
         });
