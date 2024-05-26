@@ -1,43 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/logo_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/orange_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
-
     <TextView
         android:id="@+id/app_name_text"
-        android:layout_width="wrap_content"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="8dp"
         android:fontFamily="@font/lexend_bold"
         android:text="Paws &amp; Pals"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@id/logo_image"
-        app:layout_constraintStart_toEndOf="@id/logo_image"
-        app:layout_constraintTop_toTopOf="@id/logo_image"
-        app:layout_constraintVertical_bias="0.444" />
-
-    <TextView
-        android:id="@+id/textView_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Maps Fragment"
-        android:fontFamily="@font/lexend_bold"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.038" />
+
+    <Button
+        android:id="@+id/btnShowMap"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button_selected"
+        android:fontFamily="@font/lexend_bold"
+        android:text="Show Map"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/app_name_text"
+        app:layout_constraintStart_toStartOf="@+id/app_name_text"
+        app:layout_constraintTop_toBottomOf="@+id/app_name_text" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
