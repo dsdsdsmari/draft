@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,22 +14,22 @@
         android:theme="@style/Theme.Draft"
         tools:targetApi="31">
         <activity
-            android:name=".AdoptNow"
+            android:name=".PetSearch"
             android:exported="false" />
         <activity
-            android:name=".CardStackView"
+            android:name=".PetsYouMayKnow"
+            android:exported="false" />
+        <activity
+            android:name=".PetDescription"
+            android:exported="false" />
+        <activity
+            android:name=".AdoptNow"
             android:exported="false" />
         <activity
             android:name=".PetPreferences"
             android:exported="false" />
         <activity
             android:name=".EditProfile"
-            android:exported="false" />
-        <activity
-            android:name=".FinalStep"
-            android:exported="false" />
-        <activity
-            android:name=".DialogPetPreferences"
             android:exported="false" />
         <activity
             android:name=".BothBreed"
@@ -39,12 +41,6 @@
             android:name=".DogBreed"
             android:exported="false" />
         <activity
-            android:name=".SearchResultDog"
-            android:exported="false" />
-        <activity
-            android:name=".PetSearch"
-            android:exported="false" />
-        <activity
             android:name=".ProfileStep4"
             android:exported="false" />
         <activity
@@ -52,9 +48,6 @@
             android:exported="false" />
         <activity
             android:name=".CatStep3"
-            android:exported="false" />
-        <activity
-            android:name=".step3"
             android:exported="false" />
         <activity
             android:name=".Step2Activity"
@@ -71,16 +64,6 @@
         <activity
             android:name=".GetStarted1"
             android:exported="false" />
-        <!--
-<activity
-            android:name=".gestarted1"
-            android:exported="false" />
-        -->
-        <!--
-<activity
-            android:name=".GetStartedOne"
-            android:exported="false" />
-        -->
         <activity
             android:name=".ConfirmationActivity"
             android:exported="false" />
@@ -100,6 +83,9 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".MapActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -112,6 +98,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/my_map_api_key" />
     </application>
 
 </manifest>
