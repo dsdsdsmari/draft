@@ -99,5 +99,35 @@
             app:layout_constraintTop_toBottomOf="@+id/textView10"
             app:layout_constraintVertical_bias="0.0" />
 
+        <Button
+            android:id="@+id/btn_AdoptNow"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/main_bg"
+            android:fontFamily="@font/lexend_medium"
+            android:text="Adopt Now"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/personalityTraits"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/personalityTraits"
+            app:layout_constraintTop_toBottomOf="@+id/personalityTraits"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/main_bg"
+            android:drawableLeft="@drawable/favorite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_AdoptNow"
+            app:layout_constraintStart_toStartOf="@+id/personalityTraits"
+            app:layout_constraintTop_toBottomOf="@+id/personalityTraits"
+            app:layout_constraintVertical_bias="1.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

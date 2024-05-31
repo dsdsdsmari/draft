@@ -1,27 +1,26 @@
 package com.example.draft;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdoptNow extends AppCompatActivity {
 
-    private ArrayAdapter<String> arrayAdapter;
-    List<String> data;
-    SwipeFlingAdapterView flingAdapterView;
+    private CardAdapter cardAdapter;
+    private List<Integer> imageResources;
+    private List<String> petNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,76 +33,84 @@ public class AdoptNow extends AppCompatActivity {
             return insets;
         });
 
-        flingAdapterView = findViewById(R.id.swipe);
+        imageResources = new ArrayList<>();
+        imageResources.add(R.drawable.bulldog_1);
+        imageResources.add(R.drawable.corgi_1);
+        imageResources.add(R.drawable.german_shepherd_1);
+        imageResources.add(R.drawable.golden_retriever_1);
+        imageResources.add(R.drawable.poodle_1);
+        imageResources.add(R.drawable.shih_tzu_1);
+        imageResources.add(R.drawable.persian_1);
+        imageResources.add(R.drawable.ragdoll_1);
+        imageResources.add(R.drawable.scottish_fold_1);
+        imageResources.add(R.drawable.siamese_1);
+        imageResources.add(R.drawable.shih_tzu_2);
+        imageResources.add(R.drawable.poodle_2);
+        imageResources.add(R.drawable.golden_retriever_2);
+        imageResources.add(R.drawable.german_shepherd_2);
+        imageResources.add(R.drawable.corgi_2);
+        imageResources.add(R.drawable.bulldog_2);
+        imageResources.add(R.drawable.siamese_2);
+        imageResources.add(R.drawable.scottish_fold_2);
+        imageResources.add(R.drawable.ragdoll_2);
+        imageResources.add(R.drawable.persian_2);
 
-        data = new ArrayList<>();
-        data.add("Dog 1");
-        data.add("Cat1");
-        data.add("Dog2");
-        data.add("Cat2");
-        data.add("Dog3");
-        data.add("Cat3");
-        data.add("Dog4");
-        data.add("Cat4");
+        petNames = new ArrayList<>();
+        petNames.add("Max");
+        petNames.add("Bella");
+        petNames.add("Charlie");
+        petNames.add("Lucy");
+        petNames.add("Cooper");
+        petNames.add("Daisy");
+        petNames.add("Whiskers");
+        petNames.add("Luna");
+        petNames.add("Shadow");
+        petNames.add("Oliver");
+        petNames.add("Buddy");
+        petNames.add("Luna");
+        petNames.add("Rocky");
+        petNames.add("Molly");
+        petNames.add("Duke");
+        petNames.add("Lyn");
+        petNames.add("Bella");
+        petNames.add("Simba");
+        petNames.add("Cleo");
+        petNames.add("Milo");
 
-        arrayAdapter = new ArrayAdapter<>(AdoptNow.this, R.layout.item, R.id.data, data);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        cardAdapter = new CardAdapter(imageResources, this, petNames);
+        recyclerView.setAdapter(cardAdapter);
 
-        flingAdapterView.setAdapter(arrayAdapter);
+        ItemTouchHelper itemTouchHelper = getItemTouchHelper();
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+    }
 
-        flingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
+    @NonNull
+    private ItemTouchHelper getItemTouchHelper() {
+        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
-            public void removeFirstObjectInAdapter() {
-                data.remove(0);
-                arrayAdapter.notifyDataSetChanged();
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
             }
 
             @Override
-            public void onLeftCardExit(Object o) {
-                Toast.makeText(AdoptNow.this, "Dislike", Toast.LENGTH_SHORT).show();
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                String petName = petNames.get(position);
+                if (direction == ItemTouchHelper.LEFT) {
+                    Toast.makeText(AdoptNow.this, "Save to Favorites!", Toast.LENGTH_SHORT).show();
+                } else if (direction == ItemTouchHelper.RIGHT) {
+//                    Toast.makeText(AdoptNow.this, "Swiped Right!", Toast.LENGTH_SHORT).show();
+                }
+                imageResources.remove(position);
+                petNames.remove(position);
+                cardAdapter.notifyItemRemoved(position);
             }
+        };
 
-            @Override
-            public void onRightCardExit(Object o) {
-                Toast.makeText(AdoptNow.this, "Add to Favorites", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onAdapterAboutToEmpty(int i) {
-
-            }
-
-            @Override
-            public void onScroll(float v) {
-
-            }
-        });
-
-        flingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClicked(int i, Object o) {
-                Toast.makeText(AdoptNow.this, "data is" + data.get(i), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        Button btn_addFavorites, dislike;
-
-        btn_addFavorites = findViewById(R.id.btn_addFavorites);
-        dislike = findViewById(R.id.btn_dislike);
-
-        btn_addFavorites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                flingAdapterView.getTopCardListener().selectRight();
-            }
-        });
-
-        dislike.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                flingAdapterView.getTopCardListener().selectLeft();
-            }
-        });
-
-
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        return itemTouchHelper;
     }
 }
