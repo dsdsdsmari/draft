@@ -21,50 +21,41 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        // Enable edge-to-edge display
-        EdgeToEdge.enable(this);
-
-        // Apply window insets to adjust padding
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        String fullName = getIntent().getStringExtra("fullName");
+        String email = getIntent().getStringExtra("email");
 
         // Set up bottom navigation view
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
                 if (item.getItemId() == R.id.navigation_home) {
-                    loadFragment(new HomeFragment());
-                    return true;
+                    selectedFragment = new HomeFragment();
                 } else if (item.getItemId() == R.id.navigation_maps) {
-                    loadFragment(new MapsFragment());
-                    return true;
+                    selectedFragment = new MapsFragment();
                 } else if (item.getItemId() == R.id.navigation_favorites) {
-                    loadFragment(new FavoritesFragment());
-                    return true;
+                    selectedFragment = new FavoritesFragment();
                 } else if (item.getItemId() == R.id.navigation_messages) {
-                    loadFragment(new MessagesFragment());
-                    return true;
+                    selectedFragment = new MessagesFragment();
                 } else if (item.getItemId() == R.id.navigation_account) {
-                    loadFragment(new AccountFragment());
-                    return true;
+                    AccountFragment accountFragment = new AccountFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("fullName", fullName);
+                    bundle.putString("email", email);
+                    accountFragment.setArguments(bundle);
+                    selectedFragment = accountFragment;
                 }
-                return false;
+                if (selectedFragment != null) {
+                    loadFragment(selectedFragment);
+                }
+                return true;
             }
         });
-
-
-
-        // Load the initial fragment
         if (savedInstanceState == null) {
             loadFragment(new HomeFragment());
         }
     }
-
-    // Method to load a fragment
     private void loadFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)

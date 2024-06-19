@@ -40,7 +40,7 @@
         app:layout_constraintVertical_bias="0.024" />
 
     <EditText
-        android:id="@+id/editTextFirstName"
+        android:id="@+id/signUpEmail"
         android:layout_width="297dp"
         android:layout_height="37dp"
         android:background="@drawable/edittext_rounded_bg"
@@ -62,7 +62,7 @@
         app:layout_constraintVertical_bias="0.242" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/signUpPassword"
         android:layout_width="297dp"
         android:layout_height="37dp"
         android:background="@drawable/edittext_rounded_bg"
@@ -161,7 +161,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.221"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextPassword"
+        app:layout_constraintTop_toBottomOf="@id/signUpPassword"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView

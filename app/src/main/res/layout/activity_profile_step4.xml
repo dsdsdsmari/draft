@@ -54,7 +54,7 @@
         app:layout_constraintVertical_bias="0.050000012" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/fullName"
         android:layout_width="330dp"
         android:layout_height="40dp"
         android:background="@drawable/edittext_rounded_bg"
@@ -82,14 +82,14 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="@+id/fullName"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintStart_toStartOf="@+id/fullName"
+        app:layout_constraintTop_toBottomOf="@+id/fullName"
         app:layout_constraintVertical_bias="0.050000012" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/phoneNumber"
         android:layout_width="330dp"
         android:layout_height="40dp"
         android:background="@drawable/edittext_rounded_bg"
@@ -112,16 +112,16 @@
         android:layout_width="330dp"
         android:layout_height="28dp"
         android:fontFamily="@font/lexend_medium"
-        android:text="Gender"
+        android:text="  Gender"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editText2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintEnd_toEndOf="@+id/phoneNumber"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="@+id/phoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+        app:layout_constraintVertical_bias="0.049" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -135,6 +135,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <RadioButton
+            android:id="@+id/radioButtonMale"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lexend_bold"
@@ -142,6 +143,7 @@
             android:textColor="@color/black" />
 
         <RadioButton
+            android:id="@+id/radioButtonFemale"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lexend_bold"

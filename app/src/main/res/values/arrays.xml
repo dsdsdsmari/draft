@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pet_categories">
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Bird</item>
+        <item>Fish</item>
+        <item>Reptile</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="pet_gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+</resources>

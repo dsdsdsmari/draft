@@ -13,7 +13,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Step1Activity extends AppCompatActivity {
+
+    RadioGroup radioGroup;
+    RadioButton radioPetOwner, radioPetAdopter;
+    Button continueButton;
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,26 +35,41 @@ public class Step1Activity extends AppCompatActivity {
             return insets;
         });
 
-        RadioGroup radioGroup = findViewById(R.id.radioGroup);
-        RadioButton radioPetOwner = findViewById(R.id.radioPetOwner);
-        RadioButton radioPetAdopter = findViewById(R.id.radioPetAdopter);
-        Button continueButton = findViewById(R.id.btn_continue);
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("users");
+
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("email");
+
+        radioGroup = findViewById(R.id.radioGroup);
+        radioPetOwner = findViewById(R.id.radioPetOwner);
+        radioPetAdopter = findViewById(R.id.radioPetAdopter);
+        continueButton = findViewById(R.id.btn_continue);
 
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int selectedId = radioGroup.getCheckedRadioButtonId();
+                String userType = "";
                 if (selectedId == radioPetOwner.getId()) {
-                    openStep2Activity();
+                    userType = "Pet Owner";
                 } else if (selectedId == radioPetAdopter.getId()) {
-                    openStep2Activity();
+                    userType = "Pet Adopter";
                 }
+
+                saveUserType(email, userType);
+                openStep2Activity(email);
             }
         });
     }
 
-    private void openStep2Activity() {
+    private void saveUserType(String email, String userType) {
+        reference.child(email.replace(".", ",")).child("userType").setValue(userType);
+    }
+
+    private void openStep2Activity(String email) {
         Intent intent = new Intent(this, Step2Activity.class);
+        intent.putExtra("email", email);
         startActivity(intent);
     }
 }

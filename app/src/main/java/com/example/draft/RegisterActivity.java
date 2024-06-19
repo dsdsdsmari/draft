@@ -2,6 +2,7 @@ package com.example.draft;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,28 +12,79 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
-import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText firstNameEditText;
-    private EditText passwordEditText;
+    EditText signupEmail;
+    EditText signupPassword;
+    Button signupButton;
+    FirebaseDatabase database;
+    DatabaseReference reference;
     private boolean isPasswordVisible = false;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
 
-        firstNameEditText = findViewById(R.id.editTextFirstName);
-        passwordEditText = findViewById(R.id.editTextPassword);
-
+        mAuth = FirebaseAuth.getInstance();
+        signupEmail = findViewById(R.id.signUpEmail);
+        signupPassword = findViewById(R.id.signUpPassword);
+        signupButton = findViewById(R.id.btnSignUp);
         CheckBox checkBox = findViewById(R.id.checkBox);
         TextView termsAndConditionsTextView = findViewById(R.id.termsAndConditionsTextView);
         TextView signInTextView = findViewById(R.id.signInTextView);
+
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = signupEmail.getText().toString().trim();
+                String password = signupPassword.getText().toString().trim();
+
+                if (TextUtils.isEmpty(email)) {
+                    signupEmail.setError("Email is required");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(password)) {
+                    signupPassword.setError("Password is required");
+                    return;
+                }
+
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    addUserToDatabase(user.getUid(), email);
+                                    openStep1Activity(email);
+                                } else {
+                                    try {
+                                        throw task.getException();
+                                    } catch (FirebaseAuthUserCollisionException e) {
+                                        signupEmail.setError("Email is already registered");
+                                        signupEmail.requestFocus();
+                                    } catch (Exception e) {
+                                        Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                        });
+            }
+        });
 
         termsAndConditionsTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,32 +96,16 @@ public class RegisterActivity extends AppCompatActivity {
         signInTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openStep1Activity();
+                openStep1Activity(null);
             }
         });
 
-        Button registerButton = findViewById(R.id.btnSignUp);
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String firstName = firstNameEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
-
-                if (firstName.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "Please enter your first name and password", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(RegisterActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                    openStep1Activity();
-                }
-            }
-        });
-
-        passwordEditText.setOnTouchListener(new View.OnTouchListener() {
+        signupPassword.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 final int DRAWABLE_RIGHT = 2;
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (event.getRawX() >= (passwordEditText.getRight() - passwordEditText.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                    if (event.getRawX() >= (signupPassword.getRight() - signupPassword.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                         togglePasswordVisibility();
                         return true;
                     }
@@ -79,19 +115,26 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void openStep1Activity() {
+    private void addUserToDatabase(String userId, String email) {
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("users");
+        reference.child(userId).child("email").setValue(email);
+    }
+
+    private void openStep1Activity(String email) {
         Intent intent = new Intent(this, Step1Activity.class);
+        intent.putExtra("email", email);
         startActivity(intent);
         finish();
     }
 
     private void togglePasswordVisibility() {
         if (isPasswordVisible) {
-            passwordEditText.setTransformationMethod(new PasswordTransformationMethod());
-            passwordEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lock, 0, R.drawable.eyes_closed, 0);
+            signupPassword.setTransformationMethod(new PasswordTransformationMethod());
+            signupPassword.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lock, 0, R.drawable.eyes_closed, 0);
         } else {
-            passwordEditText.setTransformationMethod(null);
-            passwordEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lock, 0, R.drawable.eyes_open, 0);
+            signupPassword.setTransformationMethod(null);
+            signupPassword.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lock, 0, R.drawable.eyes_open, 0);
         }
         isPasswordVisible = !isPasswordVisible;
     }

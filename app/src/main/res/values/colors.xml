@@ -13,5 +13,10 @@
     <color name="unselected_color">#FFFFFFFF</color>
     <color name="selected_color">#372B01</color>
 
+    <color name="pale_blue">#B9D9DF</color>
+    <color name="pale_orange">#96DDBB</color>
+    <color name="pale_red">#EFCCCC</color>
+    <color name="orange">#F65725</color>
+
 
 </resources>

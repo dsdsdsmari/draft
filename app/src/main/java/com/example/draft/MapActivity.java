@@ -29,7 +29,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     Location currentLocation;
     FusedLocationProviderClient fusedClient;
-    private static final int REQUEST_CODE = 101;
+    static final int REQUEST_CODE = 101;
     FrameLayout map;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

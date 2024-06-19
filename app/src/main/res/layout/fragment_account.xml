@@ -18,32 +18,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.024" />
 
-    <ImageView
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:src="@drawable/profile_pic"
-        app:layout_constraintBottom_toTopOf="@+id/txt_name"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile_icon"
+        app:civ_border_color="@color/main_bg"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="@+id/userFullName"
         app:layout_constraintTop_toBottomOf="@+id/app_name_text"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.093" />
 
     <TextView
-        android:id="@+id/txt_name"
+        android:id="@+id/userFullName"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lexend_bold"
         android:text="Danica Kim Villanueva"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_gmail"
-        app:layout_constraintEnd_toEndOf="@+id/txt_gmail"
-        app:layout_constraintStart_toStartOf="@+id/txt_gmail"
+        app:layout_constraintBottom_toTopOf="@+id/userEmail"
+        app:layout_constraintEnd_toEndOf="@+id/userEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/userEmail"
         app:layout_constraintTop_toBottomOf="@+id/app_name_text"
-        app:layout_constraintVertical_bias="0.96" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/txt_gmail"
+        android:id="@+id/userEmail"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lexend_bold"
@@ -52,9 +58,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/editProfile"
         app:layout_constraintEnd_toEndOf="@+id/editProfile"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editProfile"
         app:layout_constraintTop_toBottomOf="@+id/app_name_text"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.618" />
 
     <TextView
         android:id="@+id/app_name_text"
@@ -69,18 +76,6 @@
         app:layout_constraintStart_toEndOf="@id/logo_image"
         app:layout_constraintTop_toTopOf="@id/logo_image"
         app:layout_constraintVertical_bias="0.388" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.925"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04"
-        app:srcCompat="@drawable/options" />
 
     <Button
         android:id="@+id/editProfile"
