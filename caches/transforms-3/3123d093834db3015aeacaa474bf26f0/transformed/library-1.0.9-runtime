@@ -1,0 +1,11 @@
+com.lorentzos.flingswipe.BaseFlingAdapterView
+com.lorentzos.flingswipe.BuildConfig
+com.lorentzos.flingswipe.FlingCardListener
+com.lorentzos.flingswipe.FlingCardListener$1
+com.lorentzos.flingswipe.FlingCardListener$FlingListener
+com.lorentzos.flingswipe.LinearRegression
+com.lorentzos.flingswipe.SwipeFlingAdapterView
+com.lorentzos.flingswipe.SwipeFlingAdapterView$1
+com.lorentzos.flingswipe.SwipeFlingAdapterView$AdapterDataSetObserver
+com.lorentzos.flingswipe.SwipeFlingAdapterView$OnItemClickListener
+com.lorentzos.flingswipe.SwipeFlingAdapterView$onFlingListener

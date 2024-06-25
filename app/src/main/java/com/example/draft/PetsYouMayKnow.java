@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +26,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PetsYouMayKnow extends AppCompatActivity {
 
@@ -37,10 +43,14 @@ public class PetsYouMayKnow extends AppCompatActivity {
     private TextView bioTextView;
     private TextView ownerNameTextView;
     private TextView ownerNumberTextView;
+    private Button addToFavorites;
+    private Button adoptNow;
     private CardView ownerCardView;
+
 
     private DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +69,12 @@ public class PetsYouMayKnow extends AppCompatActivity {
         bioTextView = findViewById(R.id.bio);
         ownerNameTextView = findViewById(R.id.userName);
         ownerNumberTextView = findViewById(R.id.userPhoneNumber);
+        addToFavorites = findViewById(R.id.addToFavorite);
+        adoptNow = findViewById(R.id.btn_AdoptNow);
         ownerCardView = findViewById(R.id.ownerCardView);
 
         mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        currentUser = mAuth.getCurrentUser();
 
         if (currentUser == null) {
             // Handle case where user is not logged in
@@ -128,7 +140,56 @@ public class PetsYouMayKnow extends AppCompatActivity {
             }
         });
 
+        addToFavorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveToFavorites(petId);
+            }
+        });
     }
+
+    private void saveToFavorites(String petId) {
+        DatabaseReference userFavoritesRef = FirebaseDatabase.getInstance().getReference()
+                .child("users")
+                .child(currentUser.getEmail().replace(".", ","))
+                .child("favorites")
+                .child(petId);
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    String petName = dataSnapshot.child("name").getValue(String.class);
+                    String petImageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
+                    String petAddress = dataSnapshot.child("address").getValue(String.class);
+                    String petBreed = dataSnapshot.child("breed").getValue(String.class);
+
+                    Map<String, Object> favoritePet = new HashMap<>();
+                    favoritePet.put("name", petName);
+                    favoritePet.put("imageUrl", petImageUrl);
+                    favoritePet.put("address", petAddress);
+                    favoritePet.put("breed", petBreed);
+
+                    userFavoritesRef.setValue(favoritePet).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(PetsYouMayKnow.this, "Added to favorites", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(PetsYouMayKnow.this, "Failed to add to favorites", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("PetsYouMayKnow", "Error fetching pet data", error.toException());
+            }
+        });
+    }
+
 
     private void retrieveOwnerInformation(String petId) {
         DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("users");
@@ -145,6 +206,15 @@ public class PetsYouMayKnow extends AppCompatActivity {
                             ownerNumberTextView.setText(ownerPhoneNumber);
 
                             ownerCardView.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(PetsYouMayKnow.this, OwnerProfileActivity.class);
+                                    intent.putExtra("OWNER_EMAIL", userSnapshot.getKey());
+                                    startActivity(intent);
+                                }
+                            });
+
+                            adoptNow.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     Intent intent = new Intent(PetsYouMayKnow.this, OwnerProfileActivity.class);

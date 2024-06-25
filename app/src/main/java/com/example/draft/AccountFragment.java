@@ -96,6 +96,12 @@ public class AccountFragment extends Fragment {
             startActivity(intent);
         });
 
+        Button myPets = view.findViewById(R.id.myPets);
+        myPets.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MyPets.class);
+            startActivity(intent);
+        });
+
         Button logoutButton = view.findViewById(R.id.logout);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

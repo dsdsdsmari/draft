@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF0000</color>
     <color name="gray">#D8D8D8</color>
+    <color name="blue">#2196F3</color>
 
 
     <color name="logo">#FFF0BC</color>
@@ -17,6 +18,8 @@
     <color name="pale_orange">#96DDBB</color>
     <color name="pale_red">#EFCCCC</color>
     <color name="orange">#F65725</color>
+
+
 
 
 </resources>

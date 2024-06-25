@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,15 +28,23 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class HomeFragment extends Fragment {
 
     private LinearLayout petLayout;
     private Button button1, button2, button3;
     private FirebaseUser currentUser;
+
     private DatabaseReference userPetsRef;
     private DatabaseReference sharedPetsRef;
 
+    private Set<String> displayedPetIds;
+
     public HomeFragment() {
+        displayedPetIds = new HashSet<>();
     }
 
     @Override
@@ -126,15 +135,19 @@ public class HomeFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         String petId = dataSnapshot.getKey();
-                        String petName = dataSnapshot.child("name").getValue(String.class);
-                        String petCategory = dataSnapshot.child("category").getValue(String.class);
-                        String petBreed = dataSnapshot.child("breed").getValue(String.class);
-                        String petAddress = dataSnapshot.child("address").getValue(String.class);
-                        String petImageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
+                        if (!displayedPetIds.contains(petId)) {
+                            String petName = dataSnapshot.child("name").getValue(String.class);
+                            String petCategory = dataSnapshot.child("category").getValue(String.class);
+                            String petBreed = dataSnapshot.child("breed").getValue(String.class);
+                            String petAddress = dataSnapshot.child("address").getValue(String.class);
+                            String petImageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
 
-                        if (petName != null && petCategory != null && petBreed != null && petAddress != null && petImageUrl != null) {
-                            addPetCardView(petImageUrl, petName, petCategory, petBreed, petAddress, petId);
+                            if (petName != null && petCategory != null && petBreed != null && petAddress != null && petImageUrl != null) {
+                                addPetCardView(petImageUrl, petName, petCategory, petBreed, petAddress, petId);
+                                displayedPetIds.add(petId);
+                            }
                         }
+
                     }
                 }
 
@@ -152,15 +165,19 @@ public class HomeFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         String petId = dataSnapshot.getKey(); // Get the petId (key of the pet)
-                        String petName = dataSnapshot.child("name").getValue(String.class);
-                        String petCategory = dataSnapshot.child("category").getValue(String.class);
-                        String petBreed = dataSnapshot.child("breed").getValue(String.class);
-                        String petAddress = dataSnapshot.child("address").getValue(String.class);
-                        String petImageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
+                        if (!displayedPetIds.contains(petId)) {
+                            String petName = dataSnapshot.child("name").getValue(String.class);
+                            String petCategory = dataSnapshot.child("category").getValue(String.class);
+                            String petBreed = dataSnapshot.child("breed").getValue(String.class);
+                            String petAddress = dataSnapshot.child("address").getValue(String.class);
+                            String petImageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
 
-                        if (petName != null && petCategory != null && petBreed != null && petAddress != null && petImageUrl != null) {
-                            addPetCardView(petImageUrl, petName, petCategory, petBreed, petAddress, petId);
+                            if (petName != null && petCategory != null && petBreed != null && petAddress != null && petImageUrl != null) {
+                                addPetCardView(petImageUrl, petName, petCategory, petBreed, petAddress, petId);
+                                displayedPetIds.add(petId);
+                            }
                         }
+
                     }
                 }
 

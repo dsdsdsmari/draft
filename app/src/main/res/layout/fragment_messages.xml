@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:fillViewport="true"
-    tools:layout_editor_absoluteX="1dp"
-    tools:layout_editor_absoluteY="1dp">
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <!-- Header Section -->
+        android:layout_height="wrap_content"
+        android:background="@color/off_white">
 
         <ImageView
             android:id="@+id/logo_image"
@@ -23,7 +23,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.024" />
+            app:layout_constraintVertical_bias="0.024"
+            />
 
         <TextView
             android:id="@+id/app_name_text"
@@ -39,39 +40,98 @@
             app:layout_constraintHorizontal_bias="0.331"
             app:layout_constraintStart_toEndOf="@id/logo_image"
             app:layout_constraintTop_toTopOf="@id/logo_image"
-            app:layout_constraintVertical_bias="0.388" />
+            app:layout_constraintVertical_bias="0.388"
+            />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/chat_count_card_view"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            app:cardBackgroundColor="@color/main_bg"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/app_name_text">
-
-            <TextView
-                android:id="@+id/textMessages"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Chats(3)"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-        </androidx.cardview.widget.CardView>
-
-        <!-- RecyclerView for Messages -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewMessages"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/lexend_bold"
+            android:paddingTop="5dp"
+            android:textSize="15sp"
+            android:gravity="left"
+            android:text="Start messaging fellow pet owners or adopters here on Paws &amp; Pals!"
+            app:layout_constraintBottom_toTopOf="@+id/subject"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/logo_image"
+            app:layout_constraintTop_toBottomOf="@+id/app_name_text"
+            app:layout_constraintVertical_bias="0.742" />
+
+
+        <EditText
+            android:id="@+id/to_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/edittext_rounded_bg"
+            android:fontFamily="@font/lexend_bold"
+            android:hint="To Email"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content" />
+
+        <EditText
+            android:id="@+id/subject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="112dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/edittext_rounded_bg"
+            android:fontFamily="@font/lexend_bold"
+            android:hint="Subject"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_name_text" />
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/edittext_rounded_bg"
+            android:fontFamily="@font/lexend_medium"
+            android:gravity="top|start"
+            android:hint="Content"
+            android:inputType="textMultiLine"
+            android:lines="20"
+            android:minLines="15"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subject" />
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="120dp"
+            android:layout_height="48dp"
+            android:layout_gravity="right"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="50dp"
+            android:backgroundTint="@color/blue"
+            android:fontFamily="@font/lexend_bold"
+            android:text="Send"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/chat_count_card_view" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/to_email"
+            app:layout_constraintVertical_bias="0.471" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</RelativeLayout>
+</ScrollView>

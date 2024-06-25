@@ -19,18 +19,48 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.038" />
 
-    <Button
-        android:id="@+id/btnShowMap"
+    <TextView
+        android:id="@+id/textView11"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_button_selected"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/lexend_bold"
-        android:text="Show Map"
-        android:textColor="@color/black"
+        android:text="Find Yourself, Anywhere You Go!"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/app_name_text"
         app:layout_constraintStart_toStartOf="@+id/app_name_text"
-        app:layout_constraintTop_toBottomOf="@+id/app_name_text" />
+        app:layout_constraintTop_toBottomOf="@+id/app_name_text"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/picture_maps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnShowMap"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_button_selected"
+        android:fontFamily="@font/lexend_bold"
+        android:text="Open Map"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.0" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

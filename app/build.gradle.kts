@@ -49,6 +49,9 @@ dependencies {
     implementation(libs.firebase.storage)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.firebase.messaging)
+    implementation(libs.firebase.inappmessaging.display)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -61,5 +64,7 @@ dependencies {
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+
+    implementation ("com.firebaseui:firebase-ui-database:8.0.0")
 
 }

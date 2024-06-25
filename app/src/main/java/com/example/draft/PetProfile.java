@@ -1,6 +1,7 @@
 package com.example.draft;
 
 public class PetProfile {
+    private String UserId;
     private String name;
     private String breed;
     private String age;
@@ -15,7 +16,8 @@ public class PetProfile {
     }
 
 
-    public PetProfile(String name, String breed, String age, String address, String behavior, String bio, String category, String gender, String imageUrl) {
+    public PetProfile(String UserId, String name, String breed, String age, String address, String behavior, String bio, String category, String gender, String imageUrl) {
+        this.UserId = UserId;
         this.name = name;
         this.breed = breed;
         this.age = age;
@@ -25,6 +27,14 @@ public class PetProfile {
         this.category = category;
         this.gender = gender;
         this.imageUrl = imageUrl;
+    }
+
+    public String getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(String name) {
+        this.UserId = UserId;
     }
 
     public String getName() {
